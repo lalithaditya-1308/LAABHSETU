@@ -1,0 +1,13 @@
+{
+  "expo": {
+    "name": "MandiMitra",
+    "slug": "mandimitra",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "scheme": "mandimitra",
+    "android": {"package": "in.mandimitra.app", "versionCode": 1, "permissions": ["INTERNET", "RECORD_AUDIO"], "usesCleartextTraffic": true},
+    "plugins": ["react-native-webview"],
+    "extra": {"eas": {"projectId": "REPLACE_WITH_YOUR_EAS_PROJECT_ID"}}
+  }
+}

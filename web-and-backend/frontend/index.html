@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#173d2b" />
+  <title>MandiMitra — Smarter mandi decisions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#">
+        <span class="brand-mark">M</span>
+        <span><b>MandiMitra</b><small>Farmer-first market intelligence</small></span>
+      </a>
+      <div class="side-label">WORKSPACE</div>
+      <a class="nav-item active" href="#compare"><span>▦</span> Mandi comparison</a>
+      <a class="nav-item" href="#how"><span>◷</span> How it works</a>
+      <div class="sidebar-bottom">
+        <div class="help-card">
+          <div class="help-icon">✦</div>
+          <b>Make informed decisions</b>
+          <p>Compare the amount you may retain after estimated expenses—not just the highest mandi price.</p>
+        </div>
+        <div class="profile"><div class="avatar">F</div><div><b>Farmer workspace</b><small>Demo account</small></div><span class="dots">•••</span></div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="crumb">Workspace <span>/</span> <b>Mandi comparison</b></div>
+        <div class="top-actions"><span class="status-dot"></span><span id="connectionLabel">Backend not connected</span><select class="language" id="languageBtn" aria-label="Choose language"><option value="en">English</option><option value="hi">हिन्दी</option><option value="te">తెలుగు</option></select></div>
+      </header>
+
+      <section class="welcome">
+        <div>
+          <div class="eyebrow"><span class="spark">✳</span> YOUR MARKET, MADE CLEARER</div>
+          <h1 data-i18n="heroTitle">Sell smarter.<br><em>Keep more of what you earn.</em></h1>
+          <p data-i18n="heroDesc">Compare mandi prices after transport and other costs to understand your estimated net return.</p>
+        </div>
+        <div class="welcome-art" aria-hidden="true">
+          <div class="sun"></div><div class="field field-one"></div><div class="field field-two"></div>
+          <div class="grain">🌾</div>
+          <div class="art-tag">Price + costs<br><b>= clearer choices</b></div>
+        </div>
+      </section>
+
+      <section class="content-grid" id="compare">
+        <div class="panel input-panel">
+          <div class="panel-heading"><div><div class="step">STEP 01</div><h2 data-i18n="cropTitle">Tell us about your crop</h2><p data-i18n="cropDesc">Enter your crop and location to find reported mandi prices.</p></div><span class="panel-icon">🌱</span></div>
+          <form id="searchForm">
+            <div class="form-grid">
+              <label>Crop / commodity
+                <select id="commodity"><option>Wheat</option><option>Rice</option><option>Potato</option><option>Onion</option><option>Tomato</option><option>Mustard</option></select>
+              </label>
+              <label>State
+                <input id="state" value="Uttar Pradesh" placeholder="e.g. Uttar Pradesh" required />
+              </label>
+              <label>District <span class="optional">OPTIONAL</span>
+                <input id="district" value="Prayagraj" placeholder="e.g. Prayagraj" />
+              </label>
+              <label>Quantity <span class="unit">QUINTALS</span>
+                <input id="quantity" type="number" min="0.01" step="0.01" value="20" required />
+              </label>
+            </div>
+            <div class="form-footer"><span class="micro-note">1 quintal = 100 kg</span><button class="primary-btn" type="submit"><span data-i18n="findPrices">Find mandi prices</span><b>→</b></button></div>
+          </form>
+          <div class="divider"></div>
+          <div class="panel-heading compact"><div><div class="step">STEP 02</div><h2 data-i18n="expenseTitle">Add estimated mandi expenses</h2><p data-i18n="expenseDesc">Enter the costs you expect for each market.</p></div></div>
+          <div id="marketsArea" class="markets-area">
+            <div class="empty-state"><div class="empty-icon">⌕</div><b>No mandi prices loaded yet</b><p>Choose your crop and location, then select “Find mandi prices”.</p><button type="button" class="text-btn" id="tryDemo">Or explore with sample data →</button></div>
+          </div>
+          <div class="form-footer compare-footer"><span class="micro-note">You can edit expenses before comparing.</span><button class="primary-btn" id="compareBtn" disabled><span data-i18n="compareReturns">Compare net returns</span><b>→</b></button></div>
+        </div>
+
+        <aside class="right-column">
+          <div class="tip-card">
+            <div class="tip-top"><span>✦</span> WHY NET RETURN?</div>
+            <h3>The highest price<br>isn't always the best deal.</h3>
+            <p>A farther mandi may offer a higher price but also cost more to reach. MandiMitra compares the estimated amount left after expenses.</p>
+            <div class="mini-equation"><span>Gross revenue</span><b>−</b><span>Expenses</span><b>=</b><strong>Net return</strong></div>
+          </div>
+          <div class="result-panel" id="resultPanel">
+            <div class="result-head"><div><div class="step">YOUR RESULT</div><h2>Best estimated option</h2></div><span class="result-star">✦</span></div>
+            <div class="result-empty"><div class="result-illustration">₹</div><b>Your comparison will appear here</b><p>Load mandi prices, enter expenses and compare to see which option has the highest estimated net return.</p></div>
+          </div>
+          <div class="trust-note"><span>ⓘ</span><p>Prices are indicative reported modal prices. Actual sale price, crop quality, arrivals and buyer availability can differ. This is not a profit guarantee.</p></div>
+        </aside>
+      </section>
+
+      <section class="how-section" id="how">
+        <div><div class="step">SIMPLE BY DESIGN</div><h2>From mandi prices to a clearer decision.</h2></div>
+        <div class="how-cards">
+          <article><span>01</span><b>Find prices</b><p>View reported modal prices for your crop and location.</p></article>
+          <article><span>02</span><b>Add expenses</b><p>Include transport, loading and other expected costs.</p></article>
+          <article><span>03</span><b>Compare returns</b><p>Rank markets by estimated net return, with transparent numbers.</p></article>
+        </div>
+      </section>
+      <footer><span>© 2026 MandiMitra · Built for informed decisions</span><span>Data source: data.gov.in / AGMARKNET when connected</span></footer>
+    </main>
+  </div>
+  <section class="assistant-toast" id="assistantToast" role="status" aria-live="polite">
+    <div class="assistant-avatar"><span>✦</span></div>
+    <div class="assistant-toast-copy"><div class="assistant-kicker">YOUR FARMING COMPANION</div><b data-i18n="toastTitle">Namaste! Need a hand?</b><p data-i18n="toastDesc">I can help you compare mandis and understand your estimated earnings.</p><button id="openAssistantFromToast" type="button" data-i18n="toastCta">Chat with your guide →</button></div>
+    <button class="assistant-close" id="closeAssistantToast" type="button" aria-label="Dismiss notification">×</button>
+  </section>
+
+  <button class="assistant-launcher" id="assistantLauncher" type="button" aria-label="Open MandiMitra assistant">
+    <span class="launcher-orb">✦</span><span data-i18n="askMitra">Ask MandiMitra</span><i></i>
+  </button>
+  <aside class="assistant-panel" id="assistantPanel" aria-label="MandiMitra assistant" aria-hidden="true">
+    <div class="assistant-hero">
+      <button class="assistant-minimize" id="closeAssistant" type="button" aria-label="Close assistant">×</button>
+      <div class="assistant-brand-row"><div class="assistant-avatar large"><span>✦</span></div><div><div class="assistant-kicker">MANDIMITRA INTELLIGENCE</div><b>Mitra <span class="ai-pill">AI GUIDE</span></b><small><span class="online-dot"></span> <span data-i18n="assistantReady">Here to help you make a clearer decision</span></small></div></div>
+      <div class="assistant-welcome" data-i18n="assistantWelcome">Namaste! 🌾 I'm your mandi companion. Tell me what you're growing or what you want to know.</div>
+    </div>
+    <div class="assistant-context" id="assistantContext"><span>✧</span> <span data-i18n="assistantContext">I can explain prices, travel costs and estimated net returns.</span></div>
+    <div class="assistant-messages" id="assistantMessages"></div>
+    <div class="assistant-suggestions" id="assistantSuggestions">
+      <button type="button" data-question="How do I compare mandis?" data-qkey="compare">📊 <span data-i18n="suggestCompare">Compare mandis</span></button>
+      <button type="button" data-question="Why should I add transport cost?" data-qkey="transport">🚚 <span data-i18n="suggestTransport">Transport cost</span></button>
+      <button type="button" data-question="How is net return calculated?" data-qkey="net">₹ <span data-i18n="suggestNet">My net return</span></button>
+    </div>
+    <form class="assistant-input-row" id="assistantForm"><input id="assistantInput" placeholder="Ask in English, Hindi or Telugu..." autocomplete="off" aria-label="Ask MandiMitra"/><button class="voice-button" id="voiceButton" type="button" aria-label="Speak your question">🎙</button><button class="send-button" type="submit" aria-label="Send message">↑</button></form>
+    <div class="assistant-disclaimer" data-i18n="assistantDisclaimer">Mitra explains available information; always verify prices and market conditions before travelling.</div>
+  </aside>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
