@@ -1,6 +1,6 @@
 # LAABHSETU — Web + Android starter (v1)
 
-MandiMitra helps farmers compare reported mandi modal prices after estimated transport and other expenses. This release contains a responsive web app, the existing FastAPI backend, a multilingual Mitra assistant interface, and an Expo Android wrapper.
+Laabhsetu helps farmers compare reported mandi modal prices after estimated transport and other expenses. This release contains a responsive web app, the existing FastAPI backend, a multilingual Mitra assistant interface, and an Expo Android wrapper.
 
 ## What's included
 
